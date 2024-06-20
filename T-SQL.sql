@@ -36,7 +36,7 @@ BEGIN
 	print @contador
 	set @contador = @contador + 1
 END
-	*/
+	
 
 declare @contador int = 0 
 
@@ -60,4 +60,22 @@ BEGIN CATCH
 END CATCH
 
 print('soy otra consulta')
-print('yo tambien')
+print('yo tambien)
+*/
+
+--CASE
+declare @valor int
+declare @resultado char(10)=''
+set @valor = 20
+
+set @resultado = (CASE WHEN @valor = 10 THEN 'Rojo'
+					   WHEN @valor = 20 THEN 'Morado'
+					   WHEN @valor = 30 THEN 'Negro'
+					   ELSE 'GRIS'
+					   END)
+
+PRINT @resultado
+
+select * ,(CASE WHEN disponibilidad = 1 THEN 'Verde'
+				WHEN disponibilidad = 0 THEN 'rojo'
+				ELSE 'NEGRO' END) AS INDICADOR
